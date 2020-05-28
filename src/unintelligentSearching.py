@@ -67,6 +67,14 @@ def depth_limited_search(start_page, end_page, levels):
             return False
 
 
+def iterative_deepening(start_page, end_page):
+    pass
+
+
+def bidirectional_bfs(start_page, end_page):
+    pass
+
+    
 start_time = time.time()
 # breadth_first_search_modified("Comethazine", "United States")
 # depth_limited_search("Raavi Kondala Rao", "Raghnailt", 8)
