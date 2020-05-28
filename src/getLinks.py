@@ -9,7 +9,14 @@ FORMATTING = "&formatversion=2"
 
 
 def get_links_on_page(start_page):
-    return wikipedia.page(start_page).links
+    try:
+        links = []
+        for link in wikipedia.page(start_page).links:
+            if link is not None:
+                links.append(link)
+        return links
+    except:
+        return None
 
 
 def get_links_to_page(end_page):
@@ -17,7 +24,7 @@ def get_links_to_page(end_page):
     more_results_available = True
     first_run = True
     continue_code = ""
-
+    #j=0
     while more_results_available:
         call = BASE_URL + end_page + MAX_RES + FORMATTING
 
@@ -38,12 +45,14 @@ def get_links_to_page(end_page):
             full_results.append(results[i]["title"])
 
         first_run = False
-
+        #j += 500
+        #print(j)
     return full_results
 
 
 start = time.time()
-print(len(get_links_to_page("New York City")))
+# print(get_links_to_page("Raghnailt"))
+# print(len(get_links_to_page("Raghnailt")))
 end = time.time()
 
 print(end - start)
