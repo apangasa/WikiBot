@@ -24,7 +24,7 @@ def get_links_to_page(end_page):
     more_results_available = True
     first_run = True
     continue_code = ""
-    #j=0
+
     while more_results_available:
         call = BASE_URL + end_page + MAX_RES + FORMATTING
 
@@ -45,13 +45,13 @@ def get_links_to_page(end_page):
             full_results.append(results[i]["title"])
 
         first_run = False
-        #j += 500
-        #print(j)
+
+    # sort full results in O( n log n )
     return full_results
 
 
 start = time.time()
-# print(get_links_to_page("Raghnailt"))
+# print(get_links_to_page("Popular music"))
 # print(len(get_links_to_page("Raghnailt")))
 end = time.time()
 

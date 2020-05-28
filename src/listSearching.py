@@ -1,17 +1,15 @@
-def binary_search(list_name, left, right, to_find):
+def binary_search(list_name, left, right, goal):
     if right >= left:
         mid = left + (right - left) // 2
 
-        if list_name[mid] == to_find:
-            print(to_find)
+        if list_name[mid] == goal:
             return mid
 
-        elif list_name[mid] < to_find:
-            return binary_search(list_name, mid + 1, right, to_find)
+        elif list_name[mid] < goal:
+            return binary_search(list_name, mid + 1, right, goal)
 
         else:
-            return binary_search(list_name, left, mid - 1, to_find)
+            return binary_search(list_name, left, mid - 1, goal)
 
     else:
-
         return -1
