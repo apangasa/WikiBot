@@ -25,6 +25,7 @@ def get_links_to_page(end_page):
     first_run = True
     continue_code = ""
 
+    time_check_1 = time.time()
     while more_results_available:
         call = BASE_URL + end_page + MAX_RES + FORMATTING
 
@@ -45,8 +46,10 @@ def get_links_to_page(end_page):
             full_results.append(results[i]["title"])
 
         first_run = False
+        time_check_2 = time.time()
+        if time_check_2 - time_check_1 > 8:
+            break
 
-    # sort full results in O( n log n )
     return full_results
 
 
