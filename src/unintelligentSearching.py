@@ -128,6 +128,6 @@ def bidirectional_bfs_helper(links, queue, this_visited, that_visited, goal, p):
 start_time = time.time()
 # breadth_first_search_modified("Comethazine", "United States")
 # depth_limited_search("Raavi Kondala Rao", "Raghnailt", 8)
-# bidirectional_bfs("Jean-Claude Bouillaud", "Raavi Kondala Rao")
+bidirectional_bfs("2013–14 Western Kentucky Hilltoppers basketball team", "Helicobacter heilmannii sensu lato")
 end_time = time.time()
 print(end_time - start_time)

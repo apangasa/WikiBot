@@ -13,7 +13,8 @@ def get_links_on_page(start_page):
         links = []
         for link in wikipedia.page(start_page).links:
             if link is not None:
-                links.append(link)
+                if not (':' in link and link.find(": ") == -1):
+                    links.append(link)
         return links
     except:
         return None
@@ -43,7 +44,8 @@ def get_links_to_page(end_page):
         results = data["query"]["backlinks"]
 
         for i in range(len(results)):
-            full_results.append(results[i]["title"])
+            if not (':' in results[i]["title"] and results[i]["title"].find(": ") == -1):
+                full_results.append(results[i]["title"])
 
         first_run = False
         time_check_2 = time.time()
