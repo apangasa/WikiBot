@@ -43,21 +43,27 @@
   </style>
   <script type="text/javascript">
     var b = 0;
+    var t = " ";
     function iframeLinkClicked(url) {
         b++;
+        try {
+        t = document.frames['iframe_Id'].document.getElementById('firstHeading');
+        document.getElementById("firstHeading").innerHTML = t;
+      } catch (e) {
+        alert(e);
+      }
         document.getElementById("counter").innerHTML = b;
     }
     function Load(iframe) {
         iframe.onload = null;
         try {
             var a = document.frames['iframe_Id'].document.getElementsByTagName('a');
+            t = document.frames['iframe_Id'].document.getElementById('firstHeading');
+            document.getElementById("pageTitle").innerHTML = t;
             for (var i = 0; i < a.length; i++) {
                 a[i].onclick = function () {
                     parent.iframeLinkClicked(this.href);
-
                     return false;
-
-
                 };
             }
         } catch (e) {
@@ -71,7 +77,8 @@
 <body class="htmlNoPages">
   <iframe src="https://en.wikipedia.org/wiki/Great_spotted_woodpecker" onLoad="iframeLinkClicked(this);"></iframe>
   <div>
-    <h1 id=counter> </h1>
+    <h2 id=counter> </h2>
+    <h2 id =pageTitle> </h2>
   </div>
 
 </body>
